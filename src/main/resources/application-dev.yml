@@ -1,0 +1,26 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: "jdbc:mysql://localhost:3306/weirdo_animal"
+    username: "root"
+    password: "1234"
+    hikari: #Connection pool
+      minimum-idle: 2
+      maximum-pool-size: 2
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 1000
+#    open-in-view: off
+
+logging:
+  level:
+    org.hibernate.SQL: info
+    root: info
+    com.zaxxer.hikari.pool.HikariPool: debug
+
