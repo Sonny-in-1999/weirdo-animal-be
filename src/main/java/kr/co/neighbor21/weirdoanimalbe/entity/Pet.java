@@ -39,11 +39,11 @@ public class Pet {
 
     @NotNull
     @Column(name = "like", nullable = false)
-    private int like;
+    private Integer like;
 
     @NotNull
     @Column(name = "hate", nullable = false)
-    private int hate;
+    private Integer hate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pet_type_id")

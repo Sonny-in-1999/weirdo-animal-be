@@ -3,7 +3,7 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: "jdbc:mysql://localhost:3306/weirdo_animal"
+    url: "jdbc:mysql://localhost:3306/weirdo_animal?useSSL=false&allowPublicKeyRetrieval=true"
     username: "root"
     password: "1234"
     hikari: #Connection pool

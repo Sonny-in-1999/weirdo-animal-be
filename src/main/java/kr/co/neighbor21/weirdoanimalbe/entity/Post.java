@@ -31,15 +31,15 @@ public class Post extends BaseEntity {
 
     /* TODO: 이미지 저장 방법 고민 필요 */
 //    @Column(name = "image")
-//    private String image;
+//    private byte[] image;
 
     @NotNull
     @Column(name = "like", nullable = false)
-    private int like;
+    private Integer like;
 
     @NotNull
     @Column(name = "hate", nullable = false)
-    private int hate;
+    private Integer hate;
 
     /* TODO: cascade 전략 고민 필요 */
     @ManyToOne(fetch = FetchType.LAZY)

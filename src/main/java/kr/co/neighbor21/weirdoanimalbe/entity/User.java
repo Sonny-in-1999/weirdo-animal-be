@@ -1,6 +1,9 @@
 package kr.co.neighbor21.weirdoanimalbe.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import kr.co.neighbor21.weirdoanimalbe.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
@@ -9,8 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Builder
@@ -44,5 +45,5 @@ public class User extends BaseEntity {
 
     /* TODO: 이미지 저장 방법 고민 필요 */
 //    @Column(name = "profile_img")
-//    private String profileImg;
+//    private byte[] profileImg;
 }
