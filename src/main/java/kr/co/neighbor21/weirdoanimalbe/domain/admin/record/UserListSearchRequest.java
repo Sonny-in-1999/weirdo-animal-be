@@ -6,12 +6,12 @@ import jakarta.validation.constraints.NotNull;
 
 @Schema(description = "유저 목록 조회 요청")
 public record UserListSearchRequest(
-        @Schema(name = "페이지 번호", example = "0")
+        @Schema(description = "페이지 번호", example = "0")
         @NotNull
         @Min(0)
         Integer pageNo,
 
-        @Schema(name = "페이지 크기", example = "10")
+        @Schema(description = "페이지 크기", example = "10")
         @NotNull
         @Min(1)
         Integer pageSize

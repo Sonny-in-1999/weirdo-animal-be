@@ -1,5 +1,8 @@
 package kr.co.neighbor21.weirdoanimalbe.domain.admin;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kr.co.neighbor21.weirdoanimalbe.domain.common.record.GridResponse;
 import kr.co.neighbor21.weirdoanimalbe.domain.common.record.ItemResponse;
 import kr.co.neighbor21.weirdoanimalbe.domain.admin.record.UserDeleteRequest;
@@ -19,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Tag(name = "어드민", description = "어드민 페이지 기능 관련 api")
 @RequiredArgsConstructor
 @Service
 public class AdminService {
@@ -27,14 +31,9 @@ public class AdminService {
     private final UserMapper userMapper = UserMapper.INSTANCE;
 
 
-    /* 유저 프로필 용 개별 조회 필요 */
-    public void getUserProfile() {
-        // String userId = CommonUtils.getUserId();
-        // userRepository.findById(userId).orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."))
-    }
-
-
     /* 유저 개별 조회*/
+    @Operation(summary = "유저 상세 조회")
+    @ApiResponse(description = "유저 상세 정보를 반환합니다.")
     public ItemResponse<UserDetailSearchResponse> getSearchUserDetail(UserDetailSearchRequest request) throws NotFoundException {
         User user = userRepository.findById(request.userId())
                 .orElseThrow(() -> new NotFoundException());
@@ -48,6 +47,8 @@ public class AdminService {
     }
 
     /* 유저 목록 조회(페이지네이션 필요, 회원가입 내림차순 정렬) */
+    @Operation(summary = "유저 목록 조회")
+    @ApiResponse(description = "유저 목록을 반환합니다.")
     public GridResponse<UserListSearchResponse> getSearchUserList(UserListSearchRequest request) {
         Pageable pageable = PageRequest.of(request.pageNo(), request.pageSize());
         Page<User> userList = userRepository.findAllByOrderByCreateDateDesc(pageable);

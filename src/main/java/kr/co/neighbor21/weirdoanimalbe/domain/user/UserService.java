@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    /* 유저 프로필 용 개별 조회 필요 */
+    private final UserRepository userRepository;
+
+    // 유저 프로필 용 개별 조회 필요
     public void getUserProfile() {
-        // String userId = CommonUtils.getUserId();
-        // userRepository.findById(userId).orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."))
+        // String userId = CommonUtils.getUserId(); TODO userId 가져오는 로직 필요
+//        userRepository.findById(userId).orElseThrow(() -> new NotFoundException("해당 유저를 찾을 수 없습니다."));
     }
 }
